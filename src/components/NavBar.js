@@ -29,10 +29,10 @@ const Navbar = () => {
       <ul className="nav-menu">
         {urls.map((url) => (
           <li className="nav-item" key={url.id}>
-
+            <NavLink to={url.url}>{ url.text }</NavLink>
           </li>
         ))}
       </ul>
     </nav>
-  )
-}
+  );
+};
