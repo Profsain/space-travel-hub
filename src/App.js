@@ -8,7 +8,9 @@ const App = () => (
     <div className="App">
       <Router>
         <Navbar />
-        
+        <Routes>
+          <Route path="/" element={<MyProfile />} />
+        </Routes>
       </Router>
     </div>
   </>
