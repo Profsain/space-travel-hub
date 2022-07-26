@@ -1,12 +1,17 @@
 import './App.css';
 import MyProfile from './components/MyProfile';
+import { Browser as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/NavBar';
 
-function App() {
-  return (
+const App = () => (
+  <>
     <div className="App">
-      <MyProfile />
+      <Router>
+        <Navbar />
+        
+      </Router>
     </div>
-  );
-}
+  </>
+);
 
 export default App;
