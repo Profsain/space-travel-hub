@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <img src={planetImg} className="PlantImg" alt="Planet-img" />
-      <h1 className="nav-head">Space Travelers' Hub</h1>
+      <h1 className="nav-head">Space Travelers Hub</h1>
 
       <ul className="nav-menu">
         {urls.map((url) => (
