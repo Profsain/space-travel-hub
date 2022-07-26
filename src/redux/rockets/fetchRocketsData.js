@@ -1,7 +1,7 @@
 import {
   rocketsFetchBegin,
   rocketsFetchSuccess,
-  rocketsFetchError
+  rocketsFetchError,
 } from './rockets';
 
 const fetchRocketsData = () => {
