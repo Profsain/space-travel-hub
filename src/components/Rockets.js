@@ -1,37 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import RocketCards from './RocketCards';
+import fetchRocketsData from '../redux/rockets/fetchRocketsData';
 
-const Rockets = () => (
-  <div>
-    <RocketCards
-      image="r1.jpg"
-      title="AsiaSat"
-      description="The Rockets section displays a list of all available SpaceX rockets.
-        Users can book each rocket by clicking the reservation button or cancel the previously made booking.
-        The same layout is used to form the Dragons section"
-    />
-    <RocketCards
-      image="r2.jpg"
-      title="Nigeria SpaceSat"
-      description="The Rockets section displays a list of all available SpaceX rockets.
-        Users can book each rocket by clicking the reservation button or cancel the previously made booking.
-        The same layout is used to form the Dragons section"
-    />
-    <RocketCards
-      image="r4.jpg"
-      title="Saudi PeaceSat"
-      description="The Rockets section displays a list of all available SpaceX rockets.
-        Users can book each rocket by clicking the reservation button or cancel the previously made booking.
-        The same layout is used to form the Dragons section"
-    />
-    <RocketCards
-      image="r1.jpg"
-      title="Star Japan"
-      description="The Rockets section displays a list of all available SpaceX rockets.
-        Users can book each rocket by clicking the reservation button or cancel the previously made booking.
-        The same layout is used to form the Dragons section"
-    />
-  </div>
-);
+const Rockets = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchRocketsData())
+  }, []);
+  const rocketsData = useSelector((state) => state.rockets.rockets);
+  const rocketList = rocketsData.map((rocket) => {
+    const id = rocket.id;
+    const title = rocket.rocket_name;
+    const description = rocket.description;
+    const imgUrl = rocket.flickr_images[0];
+    return (
+      <RocketCards
+        key={id}
+        title={title}
+        image={imgUrl}
+        description={description}
+      />
+    )
+  })
+
+  return (
+    <div>
+      {rocketList}
+    </div>
+  );
+};
 
 export default Rockets;

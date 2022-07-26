@@ -8,7 +8,7 @@ const RocketCards = ({ image, title, description }) => (
     <div>
       <h4>{title}</h4>
       <p className="Description">{description}</p>
-      <button type="button">Reserve Rocket</button>
+      <button className="Reserve-btn" type="button">Reserve Rocket</button>
     </div>
   </div>
 );
