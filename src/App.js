@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import MyProfile from './components/MyProfile';
 
 function App() {
   return (
     <div className="App">
-      <h1>Starter Template</h1>
+      <MyProfile />
     </div>
   );
 }
