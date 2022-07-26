@@ -1,16 +1,16 @@
-const ROCKETS_FETCH_BEGIN = "ROCKETS_FETCH_BEGIN";
-const ROCKETS_FETCH_SUCCESS = "ROCKETS_FETCH_SUCCESS";
-const ROCKETS_FETCH_ERROR = "ROCKETS_FETCH_ERROR";
+const ROCKETS_FETCH_BEGIN = 'ROCKETS_FETCH_BEGIN';
+const ROCKETS_FETCH_SUCCESS = 'ROCKETS_FETCH_SUCCESS';
+const ROCKETS_FETCH_ERROR = 'ROCKETS_FETCH_ERROR';
 // initial store
 const store = {
   rockets: [],
   loading: false,
   error: null,
-}
+};
 
 // rockets reducers
 const rocketsReducer = (state = store, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ROCKETS_FETCH_BEGIN:
       return {
         ...state,
@@ -32,7 +32,7 @@ const rocketsReducer = (state = store, action) => {
     default:
       return state;
   }
-}
+};
 
 // rockets action creators
 export const rocketsFetchBegin = () => ({

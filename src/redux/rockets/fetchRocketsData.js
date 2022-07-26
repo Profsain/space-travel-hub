@@ -1,10 +1,11 @@
 import {
   rocketsFetchBegin,
   rocketsFetchSuccess,
-  rocketsFetchError } from './rockets';
+  rocketsFetchError
+} from './rockets';
 
 const fetchRocketsData = () => {
-  const url = "https://api.spacexdata.com/v3/rockets";
+  const url = 'https://api.spacexdata.com/v3/rockets';
 
   return (dispatch) => {
     dispatch(rocketsFetchBegin());
