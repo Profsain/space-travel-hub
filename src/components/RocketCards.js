@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types';
 import React from 'react';
 import '../styles/RocketCards.css';
 
@@ -17,6 +17,6 @@ RocketCards.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-}
+};
 
 export default RocketCards;
