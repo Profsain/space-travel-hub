@@ -16,8 +16,8 @@ const Rockets = () => {
       image={rocket.flickr_images[0]}
       description={rocket.description}
     />
-  )
-  );
+  ),
+);
 
   return (
     <div>
