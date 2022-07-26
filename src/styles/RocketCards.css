@@ -1,0 +1,17 @@
+.Rocket-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 38px;
+}
+
+.Rocket-card img {
+  width: 200px;
+  height: 150px;
+  margin: 18px;
+}
+
+.Rocket-card p {
+  width: 70%;
+}
