@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import Missions from "./Missions";
 
 const MissionList = (props) => {
   const { misions } = props;
@@ -18,7 +19,7 @@ const MissionList = (props) => {
       <tbody>
         {
           misions.map((mission) => (
-            <Mission key={mission.id} mission={mission} />
+            <Missions key={mission.id} mission={mission} />
           ))
         }
       </tbody>
