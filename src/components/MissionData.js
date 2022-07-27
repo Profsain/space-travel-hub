@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Missions = [
+const MissionData = [
   {
     mission_id: 1,
     mission_item: 'Thaicom',
@@ -18,4 +16,4 @@ const Missions = [
   },
 ];
 
-export default Missions;
+export default MissionData;
