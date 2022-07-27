@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import Missions from "./Missions";
+import Missions from './Missions';
 
 const MissionList = (props) => {
   const { missions } = props;
@@ -28,7 +28,7 @@ const MissionList = (props) => {
 };
 
 MissionList.propTypes = {
-  missions: PropTypes.instanceOf(Object).isRequired
+  missions: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default MissionList;
