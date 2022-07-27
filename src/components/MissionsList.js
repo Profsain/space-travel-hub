@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Missions from "./Missions";
 
 const MissionList = (props) => {
-  const { misions } = props;
+  const { missions } = props;
 
   return (
     <table className="tab-container">
@@ -18,7 +18,7 @@ const MissionList = (props) => {
 
       <tbody>
         {
-          misions.map((mission) => (
+          missions.map((mission) => (
             <Missions key={mission.id} mission={mission} />
           ))
         }
