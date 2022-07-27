@@ -32,26 +32,29 @@ const RocketCards = ({
           {isReserved ? <span className="Badge">Reserved</span> : ''}
           {description}
         </p>
-        {isReserved ?
-          (<button
-            className="Cancel-btn"
-            type="button"
-            id={rocketId}
-            onClick={handleCancelReservation}
-          >
-            Cancel Reservation
-          </button>
-          ) :
-          (<button
-            className="Reserve-btn"
-            type="button"
-            id={rocketId}
-            onClick={handleReservation}
-          >
-            Reserve Rocket
-          </button>
+        {isReserved
+        ?
+          (
+            <button
+              className="Cancel-btn"
+              type="button"
+              id={rocketId}
+              onClick={handleCancelReservation}
+            >
+              Cancel Reservation
+            </button>
           )
-        }
+          :
+          (
+            <button
+              className="Reserve-btn"
+              type="button"
+              id={rocketId}
+              onClick={handleReservation}
+            >
+              Reserve Rocket
+            </button>
+          )}
       </div>
     </div>
   );
