@@ -9,7 +9,7 @@ const RocketCards = ({
   title,
   description,
   rocketId,
-  isReserved
+  isReserved,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,8 +32,7 @@ const RocketCards = ({
           {isReserved ? <span className="Badge">Reserved</span> : ''}
           {description}
         </p>
-        {isReserved
-          ?
+        {isReserved ?
           (<button
             className="Cancel-btn"
             type="button"
@@ -41,8 +40,8 @@ const RocketCards = ({
             onClick={handleCancelReservation}
           >
             Cancel Reservation
-          </button>)
-          :
+          </button>
+          ) :
           (<button
             className="Reserve-btn"
             type="button"
@@ -50,7 +49,9 @@ const RocketCards = ({
             onClick={handleReservation}
           >
             Reserve Rocket
-          </button>)}
+          </button>
+          )
+        }
       </div>
     </div>
   );
@@ -61,7 +62,7 @@ RocketCards.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   rocketId: PropTypes.number.isRequired,
-  isRequired: PropTypes.bool.isRequired,
+  isReserved: PropTypes.bool.isRequired,
 };
 
 export default RocketCards;
