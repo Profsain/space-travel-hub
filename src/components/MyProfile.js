@@ -23,14 +23,14 @@ const MyProfile = () => {
           <div className="Content">
             {
               !reservedList.length
-              ? <p>No reservation!</p>
-              : reservedList.map((rocket) => <p key={rocket.id}>{rocket.rocket_name}</p>)
+                ? <p>No reservation!</p>
+                : reservedList.map((rocket) => <p key={rocket.id}>{rocket.rocket_name}</p>)
             }
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default MyProfile;
