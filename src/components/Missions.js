@@ -5,7 +5,6 @@ const Missions = (props) => {
   const { mission } = props;
   const { missionId, missionItem, description } = mission;
 
-
   return (
     <tr>
       <td className="tab-data">{ missionItem }</td>
