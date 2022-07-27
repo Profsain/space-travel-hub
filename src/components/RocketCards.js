@@ -44,22 +44,6 @@ const RocketCards = ({ image, title, description, rocketId, isReserved }) => {
             Reserve Rocket
           </button>
         }
-        {/* <button
-          className="Reserve-btn"
-          type="button"
-          id={rocketId}
-          onClick={handleReservation}
-        >
-          Reserve Rocket
-        </button> */}
-        {/* <button
-          className="Cancel-btn"
-          type="button"
-          id={rocketId}
-          onClick={handleReservation}
-        >
-          Cancel Reservation
-        </button> */}
       </div>
     </div>
   );
