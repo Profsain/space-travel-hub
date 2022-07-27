@@ -32,31 +32,32 @@ const rocketsReducer = (state = store, action) => {
         loading: false,
         error: action.payload.error,
       };
-    case RESERVED_ROCKET:
+    case RESERVED_ROCKET: {
       const id = parseInt(action.id);
       const newState = state.rockets.map((rocket) => {
         if (rocket.id !== id) {
           return rocket;
         }
-        return { ...rocket, reserved: true }
+        return { ...rocket, reserved: true };
       });
       return {
         ...state,
         rockets: newState,
-        loading: "New state"
       };
-    case CANCELLED_RESERVE:
+    }
+    case CANCELLED_RESERVE: {
       const cancelid = parseInt(action.id);
       const newRockets = state.rockets.map((rocket) => {
         if (rocket.id !== cancelid) {
           return rocket;
         }
-        return { ...rocket, reserved: false }
+        return { ...rocket, reserved: false };
       });
       return {
         ...state,
         rockets: newRockets,
       };
+    };
     default:
       return state;
   }
@@ -85,6 +86,6 @@ export const reservedRocket = (id) => ({
 export const cancelledReserve = (id) => ({
   type: CANCELLED_RESERVE,
   id,
-})
+});
 
 export default rocketsReducer;
