@@ -11,8 +11,8 @@ const Rockets = () => {
 
   useEffect(() => {
     if (!rocketsData.length) {
-      dispatch(fetchRocketsData())
-    };
+      dispatch(fetchRocketsData());
+    }
   }, []);
 
   const rocketList = rocketsData.map((rocket) => (
