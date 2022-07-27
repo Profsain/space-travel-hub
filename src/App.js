@@ -1,12 +1,19 @@
+import { Browser as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Rockets from './components/Rockets';
+import MyProfile from './components/MyProfile';
+import Navbar from './components/NavBar';
 
-function App() {
-  return (
+const App = () => (
+  <>
     <div className="App">
-      <Rockets />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<MyProfile />} />
+        </Routes>
+      </Router>
     </div>
-  );
-}
+  </>
+);
 
 export default App;
