@@ -33,7 +33,7 @@ const RocketCards = ({
           {description}
         </p>
         {isReserved
-          ?(
+          ? (
             <button
               className="Cancel-btn"
               type="button"
@@ -43,7 +43,7 @@ const RocketCards = ({
               Cancel Reservation
             </button>
           )
-          :(
+          : (
             <button
               className="Reserve-btn"
               type="button"
