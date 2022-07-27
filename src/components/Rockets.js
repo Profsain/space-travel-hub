@@ -4,17 +4,21 @@ import RocketCards from './RocketCards';
 import fetchRocketsData from '../redux/rockets/fetchRocketsData';
 
 const Rockets = () => {
+  const rocketsData = useSelector((state) => state.rockets.rockets);
   const dispatch = useDispatch();
-  useEffect(() => {
+
+  useEffect((e) => {
     dispatch(fetchRocketsData());
   }, []);
-  const rocketsData = useSelector((state) => state.rockets.rockets);
+
   const rocketList = rocketsData.map((rocket) => (
     <RocketCards
       key={rocket.id}
+      rocketId={rocket.id}
       title={rocket.rocket_name}
       image={rocket.flickr_images[0]}
       description={rocket.description}
+      isReserved={rocket.reserved}
     />
   ));
 

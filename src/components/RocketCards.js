@@ -1,17 +1,69 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { reservedRocket, cancelledReserve } from '../redux/rockets/rockets';
 import '../styles/RocketCards.css';
 
-const RocketCards = ({ image, title, description }) => (
-  <div className="Rocket-card">
-    <img src={image} alt="Space rockets" />
-    <div>
-      <h4>{title}</h4>
-      <p className="Description">{description}</p>
-      <button className="Reserve-btn" type="button">Reserve Rocket</button>
+const RocketCards = ({ image, title, description, rocketId, isReserved }) => {
+  const dispatch = useDispatch();
+
+  const handleReservation = (e) => {
+    const id = e.target.id;
+    dispatch(reservedRocket(id));
+  };
+
+  const handleCancelReservation = (e) => {
+    const id = e.target.id;
+    dispatch(cancelledReserve(id))
+  }
+
+  return (
+    <div className="Rocket-card">
+      <img src={image} alt="Space rockets" />
+      <div>
+        <h4>{title}</h4>
+        <p className="Description">
+          {isReserved ? <span className="Badge">Reserved</span> : ""}
+          {description}
+        </p>
+        {isReserved ?
+          <button
+            className="Cancel-btn"
+            type="button"
+            id={rocketId}
+            onClick={handleCancelReservation}
+          >
+            Cancel Reservation
+          </button> :
+          <button
+            className="Reserve-btn"
+            type="button"
+            id={rocketId}
+            onClick={handleReservation}
+          >
+            Reserve Rocket
+          </button>
+        }
+        {/* <button
+          className="Reserve-btn"
+          type="button"
+          id={rocketId}
+          onClick={handleReservation}
+        >
+          Reserve Rocket
+        </button> */}
+        {/* <button
+          className="Cancel-btn"
+          type="button"
+          id={rocketId}
+          onClick={handleReservation}
+        >
+          Cancel Reservation
+        </button> */}
+      </div>
     </div>
-  </div>
-);
+  );
+}
 
 RocketCards.propTypes = {
   description: PropTypes.string.isRequired,
