@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import RocketCards from './RocketCards';
 import fetchRocketsData from '../redux/rockets/fetchRocketsData';
+import '../styles/Rockets.css';
 
 const Rockets = () => {
   const rocketsData = useSelector((state) => state.rockets.rockets);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRocketsData());
+    if (!rocketsData.length) {
+      dispatch(fetchRocketsData())
+    };
   }, []);
 
   const rocketList = rocketsData.map((rocket) => (
@@ -23,7 +26,7 @@ const Rockets = () => {
   ));
 
   return (
-    <div>
+    <div className="Rockets">
       {rocketList}
     </div>
   );

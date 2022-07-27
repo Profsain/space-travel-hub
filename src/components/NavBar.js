@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import planetImg from '../public/planet2.png';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   const urls = [
@@ -23,13 +23,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <img src="planet2.png" className="PlantImg" alt="Planet-img" />
-      <h1 className="nav-head">Space Travelers Hub</h1>
-
+      <div className="Brend-container">
+        <img src="planet.png" className="Brend" alt="Planet-img" />
+        <h1 className="nav-head">Space Travelers Hub</h1>
+      </div>
       <ul className="nav-menu">
         {urls.map((url) => (
           <li className="nav-item" key={url.id}>
-            <NavLink to={url.url}>{ url.text }</NavLink>
+            <NavLink to={url.url}>{url.text}</NavLink>
           </li>
         ))}
       </ul>
