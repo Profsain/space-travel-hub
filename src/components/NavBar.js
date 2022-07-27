@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="Brend-container">
-        <img src="planet.png" className="Brend" alt="Planet-img" />
+        <img src="planet2.png" className="Brend" alt="Planet-img" />
         <h1 className="nav-head">Space Travelers Hub</h1>
       </div>
       <ul className="nav-menu">
