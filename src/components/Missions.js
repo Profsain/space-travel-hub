@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from '../redux/missions/fetchMissionData';
+import { fetchMissions, joinMission, leaveMission } from '../redux/missions/fetchMissionData';
 
 const Missions = () => {
   const dispatch = useDispatch();
