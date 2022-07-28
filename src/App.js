@@ -6,7 +6,6 @@ import Navbar from './components/NavBar';
 import Missions from './components/Missions';
 
 const App = () => (
-  <>
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -15,7 +14,6 @@ const App = () => (
         <Route path="/" element={<Rockets />} />
       </Routes>
     </BrowserRouter>
-  </>
 );
 
 export default App;

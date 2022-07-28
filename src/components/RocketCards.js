@@ -59,11 +59,11 @@ const RocketCards = ({
 };
 
 RocketCards.propTypes = {
-  description: PropTypes.string,
-  image: PropTypes.string,
-  title: PropTypes.string,
-  rocketId: PropTypes.number,
-  isReserved: PropTypes.bool,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  rocketId: PropTypes.number.isRequired,
+  isReserved: PropTypes.bool.isRequired,
 };
 
 export default RocketCards;

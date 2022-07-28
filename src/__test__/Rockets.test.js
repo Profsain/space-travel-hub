@@ -4,11 +4,11 @@ import renderer from 'react-test-renderer';
 import store from '../redux/configurestore';
 import Rockets from '../components/Rockets';
 
-it ('Renders Rockets component correctly', () => {
+it('Renders Rockets component correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <Rockets />
-    </Provider>
+    </Provider>,
   );
-  expect(tree).toMatchSnapshot()
-})
+  expect(tree).toMatchSnapshot();
+});

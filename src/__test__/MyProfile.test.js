@@ -4,11 +4,11 @@ import renderer from 'react-test-renderer';
 import store from '../redux/configurestore';
 import MyProfile from '../components/MyProfile';
 
-it ('Renders MyProfile component correctly', () => {
+it('Renders MyProfile component correctly', () => {
   const tree = renderer.create(
     <Provider store={store}>
       <MyProfile />
-    </Provider>
+    </Provider>,
   );
   expect(tree).toMatchSnapshot();
 });
