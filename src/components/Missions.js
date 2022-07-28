@@ -47,8 +47,8 @@ const Missions = () => {
                 <p className="desc-cell">{description}</p>
               </td>
               <td className="badge-cont">
-                {reserved && <Badge  className="act-badge">Active Member</Badge>}
-                {!reserved && <Badge  className="badge">NOT A MEMBER</Badge>}
+                {reserved && <span className="act-badge">Active Member</span>}
+                {!reserved && <span className="badge">NOT A MEMBER</span>}
               </td>
               <td className="button-cont">
                 {reserved && (
