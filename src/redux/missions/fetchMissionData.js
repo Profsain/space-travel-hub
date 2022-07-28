@@ -1,32 +1,57 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import fetchMissions from './missions';
+const BASE_URL = 'https://api.spacexdata.com/v3/missions';
+const LOAD_MISSIONS = 'missions/load';
+const JOIN_MISSION = 'missions/join';
+const LEAVE_MISSION = 'missions/leave';
 
-const initialState = {
-  isLoading: false,
-  isFailed: false,
-  items: [],
-};
-
-export const fetchRocketsData = createAsyncThunk (
-  'missions/fetchMissions',
-  async () => {
-    const { data } = await fetchMissions();
-
-    return data;
-  },
-);
-
-const missionSlice = createSlice({
- name: 'missions',
- initialState,
- extraReducers: {
-   [fetchRocketsData.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.items = action.payload;
-   },
-   [fetchRocketsData.pending]: (state) => { state.isLoading =  true; },
-   [fetchRocketsData.rejected]: (state) => { state.isFailed = true; },
- },
+const loadMissions = (payload) => ({
+  type: LOAD_MISSIONS,
+  payload,
 });
 
-export default missionSlice.reducer;
+export const fetchMissions = async (dispatch) => {
+  const response = await fetch(BASE_URL);
+  const missions = await response.json();
+
+  dispatch(
+    loadMissions(
+      missions.map((mission) => ({
+        id: mission.mission_id,
+        name: mission.mission_name,
+        description: mission.description,
+      })),
+    ),
+  );
+};
+
+const MissionsReducer = (state = [], action) => {
+  switch (action.type) {
+    case LOAD_MISSIONS:
+      return action.payload;
+    case JOIN_MISSION:
+      return state.map((mission) => {
+        if (mission.id !== action.id) {
+          return mission;
+        }
+
+        return {
+          ...mission,
+          reserved: true,
+        };
+      });
+    case LEAVE_MISSION:
+      return state.map((mission) => {
+        if (mission.id !== action.id) {
+          return mission;
+        }
+
+        return {
+          ...mission,
+          reserved: false,
+        };
+      });
+    default:
+      return state;
+  }
+};
+
+export default MissionsReducer;
