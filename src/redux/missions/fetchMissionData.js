@@ -13,7 +13,7 @@ export const joinMission = (id) => ({
   id,
 });
 
-export const leaveMission =(id) => ({
+export const leaveMission = (id) => ({
   type: LEAVE_MISSION,
   id,
 });
