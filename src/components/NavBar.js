@@ -7,7 +7,7 @@ const Navbar = () => {
     {
       id: 1,
       url: '/',
-      text: 'Rocket',
+      text: 'Rockets',
     },
     {
       id: 2,
