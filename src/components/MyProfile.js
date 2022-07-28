@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import '../styles/MyProfile.css';
@@ -7,10 +8,10 @@ const MyProfile = () => {
   const reservedList = rocketsData.filter((rocket) => rocket.reserved === true);
   const missionProfile = useSelector((state) => [
     {
-      MissionTitle: "My Mission",
+      MissionTitle: 'My Mission',
       data: state.missions.filter((mission) => mission.reserved),
     },
-  ])
+  ]);
 
   return (
     <div className="Profile-container">

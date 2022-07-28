@@ -6,6 +6,7 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMissions, joinMission, leaveMission } from '../redux/missions/fetchMissionData';
+import '../App.css';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -21,13 +22,13 @@ const Missions = () => {
   const leaveMissionHandler = (id) => dispatch(leaveMission(id));
 
   return (
-    <Container>
-      <Table striped bordered hover>
+    <Container className="mission-cont">
+      <Table className="tab-container">
         <thead>
-          <tr>
-            <th>Mission</th>
-            <th>Description</th>
-            <th>Status</th>
+          <tr className="tab-row">
+            <th className="mission-head">Mission</th>
+            <th className="desc-head">Description</th>
+            <th className="stat-head">Status</th>
             <th>{"  "}</th>
           </tr>
         </thead>
@@ -35,20 +36,24 @@ const Missions = () => {
           {missions.map(({
             id, name, description, reserved,
           }) => (
-            <tr key={id}>
+            <tr 
+              className="wrapper"
+              key={id}
+              >
               <td>
-                <p className="fw-bold">{name}</p>
+                <p className="name-cell">{name}</p>
               </td>
               <td>
-                <p>{description}</p>
+                <p className="desc-cell">{description}</p>
               </td>
-              <td className="align-middle">
-                {reserved && <Badge bg="info">Active Member</Badge>}
-                {!reserved && <Badge bg="secondary">NOT A MEMBER</Badge>}
+              <td className="badge-cont">
+                {reserved && <span className="act-badge">Active Member</span>}
+                {!reserved && <span className="badge">NOT A MEMBER</span>}
               </td>
-              <td className="col-2 align-middle text-center">
+              <td className="button-cont">
                 {reserved && (
                 <Button 
+                  className="leave-btn"
                   size="sm" 
                   variant="outline-danger"
                   onClick={() => leaveMissionHandler(id)}>
@@ -57,6 +62,7 @@ const Missions = () => {
                 )}
                 {!reserved && (
                 <Button 
+                  className="join-btn"
                   size="sm" 
                   variant="outline-secondary"
                   onClick={() => joinMissionHandle(id)}>
