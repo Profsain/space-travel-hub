@@ -1,27 +1,37 @@
+/* eslint-disable */
 import React from 'react';
 import { useSelector } from 'react-redux';
+// import { ListGroup } from 'react-bootstrap';
 import '../styles/MyProfile.css';
 
 const MyProfile = () => {
   const rocketsData = useSelector((state) => state.rockets.rockets);
   const reservedList = rocketsData.filter((rocket) => rocket.reserved === true);
-  // const missionsData = useSelector((state) => state.missions.missions);
-  // const missionTitle = missionsData.filter((mission) => mission.reserved === true);
+  // const missionList = useSelector((state) => state.missions.mission);
+  // console.log('missionList', missionList);
+  const missionProfile = useSelector((state) => [
+    {
+      MissionTitle: "My Mission",
+      data: state.missions.filter((mission) => mission.reserved),
+    },
+  ])
+  console.log(missionProfile[0].data);
 
   return (
     <div className="Profile-container">
       <h2>My Profile</h2>
       <div className="Section">
-        <div className="Missions">
-          <h4>My Missions</h4>
-          <div className="Content">
-            {/* {
-              !missionTitle.length
-                ? <p>No Mission Joined!</p>
-                : missionTitle.map((mission) => <p key={mission.id}>{mission.mission_name}</p>)
-            } */}
-          </div>
-        </div>
+        {missionProfile.map(({ MissionTitle, data}) => (
+          <div className="Missions">
+            <h4>{MissionTitle}</h4>
+              <div className="Content">
+                {data.map((item) => (
+                  <p key={item.id}>{item.name}</p>
+                ))}
+
+              </div>
+            </div>
+          ))}
         <div className="Rockets">
           <h4>My Rockets</h4>
           <div className="Content">
