@@ -7,15 +7,12 @@ import '../styles/MyProfile.css';
 const MyProfile = () => {
   const rocketsData = useSelector((state) => state.rockets.rockets);
   const reservedList = rocketsData.filter((rocket) => rocket.reserved === true);
-  // const missionList = useSelector((state) => state.missions.mission);
-  // console.log('missionList', missionList);
   const missionProfile = useSelector((state) => [
     {
       MissionTitle: "My Mission",
       data: state.missions.filter((mission) => mission.reserved),
     },
   ])
-  console.log(missionProfile[0].data);
 
   return (
     <div className="Profile-container">
