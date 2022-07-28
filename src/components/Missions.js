@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from '../redux/missions/fetchMissionData';
+import { fetchMissions, joinMission, leaveMission } from '../redux/missions/fetchMissionData';
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,9 @@ const Missions = () => {
       dispatch(fetchMissions);
     }
   }, []);
+
+  const joinMissionHandle = (id) => dispatch(joinMission(id));
+  const leaveMissionHandler = (id) => dispatch(leaveMission(id));
 
   return (
     <Container>
@@ -45,12 +48,18 @@ const Missions = () => {
               </td>
               <td className="col-2 align-middle text-center">
                 {reserved && (
-                <Button size="sm" variant="outline-danger">
+                <Button 
+                  size="sm" 
+                  variant="outline-danger"
+                  onClick={() => leaveMissionHandler(id)}>
                   Leave Mission
                 </Button>
                 )}
                 {!reserved && (
-                <Button size="sm" variant="outline-secondary">
+                <Button 
+                  size="sm" 
+                  variant="outline-secondary"
+                  onClick={() => joinMissionHandle(id)}>
                   Join Mission
                 </Button>
                 )}
